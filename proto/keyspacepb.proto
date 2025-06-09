@@ -24,6 +24,7 @@ service Keyspace {
   rpc WatchKeyspaces (WatchKeyspacesRequest) returns (stream WatchKeyspacesResponse) {}
   rpc UpdateKeyspaceState(UpdateKeyspaceStateRequest) returns (UpdateKeyspaceStateResponse) {}
   rpc GetAllKeyspaces(GetAllKeyspacesRequest) returns (GetAllKeyspacesResponse) {}
+  rpc LoadKeyspaceById (LoadKeyspaceByIdRequest) returns (LoadKeyspaceByIdResponse) {}
 }
 
 message KeyspaceMeta {
@@ -81,4 +82,14 @@ message GetAllKeyspacesRequest{
 message GetAllKeyspacesResponse{
   pdpb.ResponseHeader header = 1;
   repeated KeyspaceMeta keyspaces = 2;
+}
+
+message LoadKeyspaceByIdRequest {
+  pdpb.RequestHeader header = 1;
+  uint32 id = 2;
+}
+
+message LoadKeyspaceByIdResponse {
+  pdpb.ResponseHeader header = 1;
+  KeyspaceMeta keyspace = 2;
 }
