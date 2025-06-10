@@ -8787,6 +8787,36 @@
                 "is_repeated": true
               }
             ]
+          },
+          {
+            "name": "LoadKeyspaceByIdRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "header",
+                "type": "pdpb.RequestHeader"
+              },
+              {
+                "id": 2,
+                "name": "id",
+                "type": "uint32"
+              }
+            ]
+          },
+          {
+            "name": "LoadKeyspaceByIdResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "header",
+                "type": "pdpb.ResponseHeader"
+              },
+              {
+                "id": 2,
+                "name": "keyspace",
+                "type": "KeyspaceMeta"
+              }
+            ]
           }
         ],
         "services": [
@@ -8813,6 +8843,11 @@
                 "name": "GetAllKeyspaces",
                 "in_type": "GetAllKeyspacesRequest",
                 "out_type": "GetAllKeyspacesResponse"
+              },
+              {
+                "name": "LoadKeyspaceById",
+                "in_type": "LoadKeyspaceByIdRequest",
+                "out_type": "LoadKeyspaceByIdResponse"
               }
             ]
           }
